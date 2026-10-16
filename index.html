@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="South Kolkata Durga Puja pandal hopping planner with 50 stops, route clusters, timings and transport tips.">
+<title>South Kolkata Pandal Hopping 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <nav><div class="brand">🌺 MA DURGA</div><a href="#route">पंडाल लिस्ट</a><a href="#planner">रूट प्लान</a><a href="#tips">Travel Tips</a></nav>
+  <div class="hero-inner">
+    <div class="creator-brand"><span class="creator-label">CREATED BY</span><div class="creator-name">owsm_sachin</div></div>
+    <span class="eyebrow">DURGA PUJA • 2026</span>
+    <h1>South Kolkata<br><em>Pandal Hopping</em></h1>
+    <p>50-stop planning guide · इलाके के हिसाब से रूट · अनुमानित दूरी · ट्रांसपोर्ट और टाइम प्लान</p>
+    <div class="hero-actions"><a class="button primary" href="#route">पंडाल देखो ↓</a><a class="button ghost" href="#planner">मेरा रूट प्लान</a></div>
+    <div class="stats"><div><b>50</b><span>Stops listed</span></div><div><b>3</b><span>Route clusters</span></div><div><b>XP GAME</b><span>Explore · Score · Level Up</span></div></div>
+    <div class="hero-orbit" aria-hidden="true"><span>✦</span><span>🌺</span><span>✧</span></div>
+  </div>
+</header>
+<main>
+<section class="notice"><b>ध्यान दें:</b> दूरी, लोकेशन क्लू और मेट्रो सुझाव अनुमानित हैं—ये live navigation नहीं हैं। पूजा के बैरिकेड, भीड़ और ट्रैफिक के कारण रास्ता बदल सकता है। निकलने से पहले Google Maps में हर पंडाल का सही pin और उस दिन का transport timetable जाँचें। 50 पंडाल आराम से देखने के लिए 3 outings बेहतर हैं।</section>
+<section id="route" class="section">
+  <div class="section-heading"><div><span class="eyebrow dark">EXPLORE THE CITY</span><h2>50 पंडालों की लिस्ट</h2><p>नाम, इलाका और ट्रांसपोर्ट संकेत खोजें।</p></div><input id="search" class="search" placeholder="पंडाल या इलाके का नाम खोजें…" aria-label="पंडाल खोजें"></div>
+  <div class="filters" id="filters"><button class="filter active" data-filter="all">सभी 50</button><button class="filter" data-filter="1">Day 1 · Ballygunge</button><button class="filter" data-filter="2">Day 2 · Kalighat</button><button class="filter" data-filter="3">Day 3 · Kasba/Garia</button></div>
+  <div class="scoreboard">
+    <div class="score-main"><span class="score-kicker">YOUR PUJA ADVENTURE</span><div class="score-number"><strong id="score-total">0</strong><span>XP</span></div><p id="score-rank">🌱 Beginner Explorer</p></div>
+    <div class="score-side"><div class="level-row"><span>LEVEL <b id="score-level">1</b></span><span id="next-level">100 XP to next level</span></div><div class="level-track"><div id="level-fill"></div></div><div class="badges"><span id="badge-first">🔒 First Pandal</span><span id="badge-ten">🔒 10 Stops</span><span id="badge-half">🔒 Halfway Hero</span><span id="badge-master">🔒 Pandal Master</span></div></div>
+  </div>
+  <section class="game-hub">
+    <div class="game-hub-head"><div><span class="score-kicker">PLAYER ZONE</span><h3>🏆 Explorer Leaderboard</h3><p>अपना player name सेट करो और अपने browser में high score बनाओ।</p></div><button id="sound-toggle" class="sound-toggle" aria-pressed="true">🔊 Sound ON</button></div>
+    <div class="player-controls"><label for="player-name">Player Name</label><input id="player-name" maxlength="22" placeholder="owsm_sachin"><button id="save-player" class="save-player">Save Player</button></div>
+    <div class="leaderboard" id="leaderboard"><div class="leaderboard-empty">अपना नाम save करो और pandal complete करके ranking बनाओ।</div></div>
+    <p class="leaderboard-note">ℹ️ यह leaderboard इस device/browser पर local है। दूसरे लोगों के साथ online ranking के लिए hosted database/backend जोड़ना होगा।</p>
+  </section>
+  <div class="progress-panel">
+    <div class="progress-top"><div><strong>🎯 मेरी Pandal Journey</strong><p id="progress-label">0 / 50 पंडाल पूरे · 0%</p></div><strong id="remaining-count">50 बाकी</strong></div>
+    <div class="progress-track"><div id="progress-fill"></div></div>
+    <div class="progress-controls"><button class="progress-filter active" data-progress="all">सभी दिखाओ</button><button class="progress-filter" data-progress="todo">बाकी पंडाल</button><button class="progress-filter" data-progress="done">पूरे किए</button><button id="reset-progress" class="reset-btn">Reset</button></div>
+    <small>Complete marks इसी browser में सेव होंगे। Browser data clear करने पर progress मिट सकती है।</small>
+  </div>
+  <div id="pandal-grid" class="grid"></div>
+  <p id="empty" class="empty hidden">कोई पंडाल नहीं मिला। दूसरा नाम या इलाका खोजें।</p>
+</section>
+<section id="planner" class="section planner">
+  <div class="section-heading"><div><span class="eyebrow dark">YOUR ROUTE</span><h2>दिन के हिसाब से रूट</h2><p>क्लस्टर चुनें और शुरुआती समय देखें।</p></div></div>
+  <div class="day-tabs"><button class="day-tab active" data-day="1">Day 1</button><button class="day-tab" data-day="2">Day 2</button><button class="day-tab" data-day="3">Day 3</button></div>
+  <div id="day-details" class="day-details"></div>
+</section>
+<section id="tips" class="section tips">
+  <span class="eyebrow dark">PLAN SMART</span><h2>काम की बातें</h2>
+  <div class="tip-grid">
+    <article><span>🕗</span><h3>जल्दी शुरू करें</h3><p>सुबह 8 बजे के आसपास निकलें। बड़े पंडालों में भीड़ और कतार के लिए अतिरिक्त समय रखें।</p></article>
+    <article><span>🚇</span><h3>लंबे ट्रांसफर में मेट्रो/ऑटो</h3><p>नजदीकी पंडाल पैदल देखें। दूर के क्लस्टर के लिए उसी दिन का Metro/Bus/Auto route जाँचें।</p></article>
+    <article><span>🔋</span><h3>फोन और पानी</h3><p>फोन चार्ज रखें, पानी साथ रखें और पुलिस के बैरिकेड व one-way walking lane का पालन करें।</p></article>
+    <article><span>📍</span><h3>मैप पर पिन जाँचें</h3><p>कुछ नामों के कई स्थानीय आयोजन हो सकते हैं। यात्रा से पहले सही समिति और लोकेशन पुष्टि करें।</p></article>
+  </div>
+  <div class="links"><a target="_blank" rel="noopener" href="https://www.pujomap.com/area/south-kolkata">South Kolkata Pandal Map ↗</a><a target="_blank" rel="noopener" href="https://www.pujomap.com/guide/">Kolkata Route Guide ↗</a><a target="_blank" rel="noopener" href="https://pujorshohor.in/south-kolkata-durga-puja">Pandal Directory ↗</a></div>
+</section>
+</main>
+<footer><div class="brand">🌺 MA DURGA</div><div class="footer-creator">owsm_sachin</div><p>South Kolkata Pandal Hopping · 2026 XP Adventure</p><small>यह एक planning guide है, verified ranking या live route service नहीं।</small></footer>
+<script src="script.js"></script>
+</body></html>
